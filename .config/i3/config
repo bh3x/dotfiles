@@ -170,4 +170,6 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id gnome-settings-daemon
 
-
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
