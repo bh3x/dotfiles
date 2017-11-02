@@ -100,8 +100,8 @@ set $WS1   "  Shell "
 set $WS2   "  Code "
 set $WS3   "  Browser "
 set $WS4   "  Tools "
-set $WS5   "  Media "
-set $WS6   "  Gaming "
+set $WS5   "  Chat "
+set $WS6   "  Var "
 set $WS7   "  Settings "
 
 # switch to workspace
