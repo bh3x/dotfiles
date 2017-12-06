@@ -99,8 +99,8 @@ bindsym $mod+a focus parent
 set $WS1   "  Shell "
 set $WS2   "  Code "
 set $WS3   "  Browser "
-set $WS4   "  Tools "
-set $WS5   "  Chat "
+set $WS4   "  Chat "
+set $WS5   "  Tools "
 set $WS6   "  Var "
 set $WS7   "  Settings "
 
@@ -117,13 +117,13 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
@@ -173,6 +173,14 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id gnome-settings-daemon
 
+# pulse audio volume control
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -- '-5%'
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 -- '+5%'
+bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume 0 0
+
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+
+# screen locker (first move to "safe" workspace without any chat app)
+bindsym $mod+Control+l exec i3-msg workspace $WS1 && i3lock -c 111111 -d
